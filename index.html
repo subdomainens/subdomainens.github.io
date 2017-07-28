@@ -370,7 +370,7 @@ function finalize(){
   var commitPeriod = $('#commitPeriod').val()
   var price = toWei(parseFloat($('#nameprice').val()))
   var mydata = myreg.listSubName.getData(label,ensName,commitPeriod,price,expiry)
-  var rawTx2 = {
+  var Tx = {
     from: seller,
     to: myreg.address, 
     data: mydata
