@@ -396,7 +396,7 @@ function unlist(){
 
 function check(){
     var data = ens.getNameHash($('#ename').val())
-    myes.owner.call(data,function(err,val){if(!err){
+    myens.owner.call(data,function(err,val){if(!err){
     if(val == "0x0000000000000000000000000000000000000000"){
       $("span.owner").html("No Owner");
       $("span.subPrice").text("None");
