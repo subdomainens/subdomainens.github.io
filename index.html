@@ -60,20 +60,7 @@ input{
   <div id='content'>
     <div id='left'>
      
-     <div id="sendETH" class="tabcontent" style="display:none;">
-      <div id='map'>     
-          <center><p><button  onclick="tabClose()">Send ETH</button></p></center>   
-        <p></p>
-<center><input type="text" id="ETHfrom" placeholder="From Address"></input></center>
- <center><input type="text" id="ETHto"  placeholder="To Address"> </input></center>
- <center><input type="text" id="ETHValue"   placeholder="Value (ETH)"> </input></center>
-    <center><button type="button" class="button" onclick="sendETH()" id="point">Send</button></center>
-
-      </div>
-     </div>
-
-
-<div id="sellName" class="tabcontent" style="display:none;">
+     <div id="sellName" class="tabcontent" style="display:none;">
       <div id='map'>
           <center><p><button  onclick="tabClose()">Sell Subdomains</button></p></center>   
         <p></p>
@@ -181,10 +168,7 @@ input{
 
 <div class="topnav" id="myTopnav">
       <ul id='location-bar' style="padding: 10px 32px;">
-        <li>
-          <button  onclick="openDiv(event, 'sendETH')">Send ETH</button>
-        </li>
-        <li>
+          <li>
           <button  onclick="openDiv(event, 'sellName')">Sell Name</button>
         </li>
         <li>
@@ -295,26 +279,6 @@ var myres = web3.eth.contract(resabi).at("0x1da022710dF5002339274AaDEe8D58218e9D
 var myreg = web3.eth.contract(regabi).at("0x163C90d093109DcCAa0EfB55410B105Eeb9fa02D")
 var mainreg = web3.eth.contract(mainregabi).at("0x6090A6e47849629b7245Dfa1Ca21D94cd15878Ef")
      
-function sendETH(){
-  if(empty2("sendETH") == true){
-    var from = $('#ETHfrom').val() 
-    var to = $('#ETHto').val()     
-    if(from.substr(0,2).toLowerCase() !="0x"){
-      myres.addr.call(ens.getNameHash(from),function(err,val){if(!err){from = val;}});
-     }
-    if(to.substr(0,2).toLowerCase() !="0x"){
-      myres.addr.call(ens.getNameHash(to),function(err,val){if(!err){to = val;}});
-     } 
-    var amount =  toWei(parseFloat($('#ETHValue').val()))  
-    var Tx = {
-      from: from,
-      to: to, 
-      value: amount
-  }
-  web3.eth.sendTransaction(Tx, function(err, transactionHash) {if (!err) {alert("Transaction Successful");console.log("Transaction Successful. Transaction Hash: " + transactionHash);}});  
- }  
-}
-
 function buy(){
   if(empty2("buyName") == true){
     var buyer = $('#buyer').val()
