@@ -384,8 +384,6 @@ function unlist(){
   var ensName = ens.getNameHash($('#unlistEName').val())
   var unlistLabel = web3.sha3($('#unlistEName').val().split(".")[0])
   var origOwner = $('#origOwner').val()
-  var key = globPrivKey
-  var privkey = globalFuncs.myKeyBuffer(key)
   var mydata = myreg.unlistSubName.getData(unlistLabel,ensName)
   var Tx = {
     from: origOwner,
