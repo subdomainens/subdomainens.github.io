@@ -430,8 +430,8 @@ function resolve(){
 
 function resCheck(){
     var data = ens.getNameHash($('#resCheckName').val())
-    $("span.resPoint").text(myres.addr.call(data));
- }
+    myres.addr.call(data,function(err,val){if (!err){$("span.resPoint").text(val);}});
+}
 
 </script>
 </body>
