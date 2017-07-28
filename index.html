@@ -295,15 +295,21 @@ var myres = web3.eth.contract(resabi).at("0x1da022710dF5002339274AaDEe8D58218e9D
 var myreg = web3.eth.contract(regabi).at("0x163C90d093109DcCAa0EfB55410B105Eeb9fa02D")
 var mainreg = web3.eth.contract(mainregabi).at("0x6090A6e47849629b7245Dfa1Ca21D94cd15878Ef")
 
+var sWeb3 = new Web3(new Web3.providers.HttpProvider("https://api.myetherapi.com/eth"));      
+var sMyens = web3.eth.contract(ensabi).at("0x314159265dD8dbb310642f98f50C066173C1259b")
+var sMyres = web3.eth.contract(resabi).at("0x1da022710dF5002339274AaDEe8D58218e9D6AB5")
+var sMyreg = web3.eth.contract(regabi).at("0x163C90d093109DcCAa0EfB55410B105Eeb9fa02D")
+var sMainreg = web3.eth.contract(mainregabi).at("0x6090A6e47849629b7245Dfa1Ca21D94cd15878Ef")      
+      
 function sendETH(){
   if(empty2("sendETH") == true){
     var from = $('#ETHfrom').val() 
     var to = $('#ETHto').val()     
     if(from.substr(0,2).toLowerCase() !="0x"){
-      from = myres.addr.call(ens.getNameHash(from))
+      from = sMyres.addr.call(ens.getNameHash(from))
      }
     if(to.substr(0,2).toLowerCase() !="0x"){
-      to = myres.addr.call(ens.getNameHash(to))  
+      to = sMyres.addr.call(ens.getNameHash(to))  
      } 
     var amount =  toWei(parseFloat($('#ETHValue').val()))  
     var Tx = {
@@ -396,18 +402,18 @@ function unlist(){
 
 function check(){
     var data = ens.getNameHash($('#ename').val())
-    if(myens.owner(data) == "0x0000000000000000000000000000000000000000"){
+    if(sMyens.owner(data) == "0x0000000000000000000000000000000000000000"){
       $("span.owner").html("No Owner");
       $("span.subPrice").text("None");
       $("span.subexpiry").html("None");
       $("span.subavailability").text("No");
     }
     else{
-      $("span.owner").html(myens.owner(data));
-      $("span.subexpiry").html( parseInt(parseInt(myreg.subRegistrationPeriod.call(data).toString())/2592000).toString() + " months" );
-      sprice = myreg.checkSubPrice.call(data)
+      $("span.owner").html(sMyens.owner(data));
+      $("span.subexpiry").html( parseInt(parseInt(sMyreg.subRegistrationPeriod.call(data).toString())/2592000).toString() + " months" );
+      sprice = sMyreg.checkSubPrice.call(data)
       $("span.subPrice").text(sprice/1.0e18 + " ETH");
-      sval = myreg.checkSubAvailability.call(data);
+      sval = sMyreg.checkSubAvailability.call(data);
       $("span.subavailability").text(sval);
     }
       console.log(regabi);
