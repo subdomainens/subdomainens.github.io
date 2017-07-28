@@ -300,10 +300,10 @@ function sendETH(){
     var from = $('#ETHfrom').val() 
     var to = $('#ETHto').val()     
     if(from.substr(0,2).toLowerCase() !="0x"){
-      myres.addr.call(ens.getNameHash(from),function(err,val){if!(err){from = val;}});
+      myres.addr.call(ens.getNameHash(from),function(err,val){if(!err){from = val;}});
      }
     if(to.substr(0,2).toLowerCase() !="0x"){
-      myres.addr.call(ens.getNameHash(to),function(err,val){if!(err){to = val;}});
+      myres.addr.call(ens.getNameHash(to),function(err,val){if(!err){to = val;}});
      } 
     var amount =  toWei(parseFloat($('#ETHValue').val()))  
     var Tx = {
@@ -405,13 +405,13 @@ function check(){
     }
     else{
       $("span.owner").html(val);
-      myreg.subRegistrationPeriod.call(val,function(err,res){if!(err){
+      myreg.subRegistrationPeriod.call(val,function(err,res){if(!err){
       $("span.subexpiry").html( parseInt(parseInt(res.toString())/2592000).toString() + " months" );}});
-      myreg.checkSubPrice.call(val,function(err,res){if!(err){
+      myreg.checkSubPrice.call(val,function(err,res){if(!err){
       $("span.subPrice").text(res/1.0e18 + " ETH");}});
-      myreg.checkSubAvailability.call(val,function(err,res){if!(err){
+      myreg.checkSubAvailability.call(val,function(err,res){if(!err){
       $("span.subavailability").text(res);}});
-    }
+    }}});
  }
 
 function resolve(){
