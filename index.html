@@ -379,6 +379,7 @@ function unlist(){
   var unlistLabel = web3.sha3($('#unlistEName').val().split(".")[0])
   var origOwner = $('#origOwner').val()
   var mydata = myreg.unlistSubName.getData(unlistLabel,ensName)
+  web3.eth.estimateGas({data: mydata},function(e,v){if(!e){console.log(v);}else{console.log(e);}});
   var Tx = {
     from: origOwner,
     to: myreg.address, 
@@ -415,6 +416,7 @@ function resolve(){
     var dest = $('#destETH').val()
     var ensName = ens.getNameHash($('#resENS').val())
     var mydata = myres.setAddr.getData(ensName,dest)
+    web3.eth.estimateGas({data: mydata},function(e,v){if(!e){console.log(v);}else{console.log(e);}});
     var Tx = {
       from: from,
       to: myres.address,  
