@@ -343,7 +343,8 @@ function assignment(){
     var Tx = {
       from: seller,
       to: myreg.address,
-      data: mydata
+      data: mydata,
+      gasLimit:470000
     }
     web3.eth.sendTransaction(Tx, function(err, transactionHash) {if (!err) {alert("Successful Deed Assignment");console.log("Successful Deed  Assignment. Transaction Hash: " + transactionHash);assignENS();}});
   }
@@ -361,7 +362,8 @@ function finalize(){
   var Tx = {
     from: seller,
     to: myreg.address, 
-    data: mydata
+    data: mydata,
+    gasLimit:470000  
   }
   web3.eth.sendTransaction(Tx, function(err, transactionHash) {if (!err) {alert("Successful Listing");console.log("Successful Listing. Transaction Hash: " + transactionHash);}});
   }
