@@ -66,8 +66,8 @@ input{
         <p></p>
 <center><input type="text" id="seller" style="padding:4px 10px;" placeholder="Your ETH Address"></input></center>
  <center><input type="text" id="namesell"  style="padding:4px 10px;" placeholder="ENS Name"> </input></center>
- <center><input type="text" id="commitPeriod"   style="padding:4px 10px;"placeholder="Commit Period (s)"> </input></center>
- <center><input type="text" id="nameexpiry"   style="padding:4px 10px;"placeholder="Expiry (s)"> </input></center>
+ <center><input type="text" id="commitPeriod"   style="padding:4px 10px;"placeholder="Commit Period (days)"> </input></center>
+ <center><input type="text" id="nameexpiry"   style="padding:4px 10px;"placeholder="Expiry (days)"> </input></center>
  <center><input type="text" id="nameprice"   style="padding:4px 10px;"placeholder="Price (ETH)"> </input></center>
 
     <center><span><button type="button" class="button" style="padding: 5px 16px;" onclick="assignment()" id="point">Assign Deed</button>    
@@ -359,8 +359,8 @@ function finalize(){
   var ensName = ens.getNameHash($('#namesell').val())
   var label = web3.sha3($('#namesell').val().split(".")[0]) 
   var seller = $('#seller').val()
-  var expiry = parseInt($('#nameexpiry').val())
-  var commitPeriod = $('#commitPeriod').val()
+  var expiry = parseInt($('#nameexpiry').val())*86400
+  var commitPeriod = parseInt($('#commitPeriod').val())*86400
   var price = toWei(parseFloat($('#nameprice').val()))
   var mydata = myreg.listSubName.getData(label,ensName,commitPeriod,price,expiry)
   web3.eth.estimateGas({data: mydata},function(e,v){if(!e){console.log(v);}else{console.log(e);}});
@@ -403,7 +403,7 @@ function check(){
     else{
       $("span.owner").html(val);
       myreg.subRegistrationPeriod.call(val,function(err,res){if(!err){
-      $("span.subexpiry").html( parseInt(parseInt(res.toString())/2592000).toString() + " months" );}});
+      $("span.subexpiry").html( parseInt(parseInt(res.toString())/86400).toString() + " days" );}});
       myreg.checkSubPrice.call(val,function(err,res){if(!err){
       $("span.subPrice").text(res/1.0e18 + " ETH");}});
       myreg.checkSubAvailability.call(val,function(err,res){if(!err){
