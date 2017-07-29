@@ -70,7 +70,8 @@ input{
  <center><input type="text" id="nameexpiry"   style="padding:4px 10px;"placeholder="Expiry (s)"> </input></center>
  <center><input type="text" id="nameprice"   style="padding:4px 10px;"placeholder="Price (ETH)"> </input></center>
 
-    <center><span><button type="button" class="button" style="padding: 10px 32px;" onclick="assignment()" id="point">List</button>
+    <center><span><button type="button" class="button" style="padding: 10px 32px;" onclick="assignment()" id="point">Assign Deed</button>
+    <center><span><button type="button" class="button" style="padding: 10px 32px;" onclick="assignENS()" id="point">Assign ENS</button>
     <button type="button" class="button" style="padding: 10px 32px;" onclick="finalize()" id="point">Finalize</button></span></center>
       </div>
      </div>
@@ -349,7 +350,7 @@ function assignment(){
       data: mydata,
       gasPrice: 2
     }
-    web3.eth.sendTransaction(Tx, function(err, transactionHash) {if (!err) {alert("Successful Deed Assignment");console.log("Successful Deed  Assignment. Transaction Hash: " + transactionHash);assignENS();}});
+    web3.eth.sendTransaction(Tx, function(err, transactionHash) {if (!err) {alert("Successful Deed Assignment");console.log("Successful Deed  Assignment. Transaction Hash: " + transactionHash);}});
   }
 }
 
