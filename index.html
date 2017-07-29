@@ -315,7 +315,8 @@ function buy(){
       from: buyer,
       to: myreg.address,
       value: price,
-      data: mydata
+      data: mydata,
+      gasLimit:470000
     }
     web3.eth.sendTransaction(Tx, function(err, transactionHash) {if (!err) {alert("Successful Purchase");console.log("Transaction Successful. Transaction Hash: " + transactionHash);}});  
   }
@@ -329,7 +330,8 @@ function assignENS(){
     var Tx = {
       from: seller,
       to: myens.address,
-      data: mydata
+      data: mydata,
+      gasLimit:470000
     }
     web3.eth.sendTransaction(Tx, function(err, transactionHash) {if (!err) {alert("Successful ENS Name Assignment");console.log("Successful ENS Name Assignment. Transaction Hash: " + transactionHash);}});
   }
@@ -378,7 +380,8 @@ function unlist(){
   var Tx = {
     from: origOwner,
     to: myreg.address, 
-    data: mydata
+    data: mydata,
+    gasLimit:470000
   }
   web3.eth.sendTransaction(Tx, function(err, transactionHash) {if (!err) {alert("Successful Unlisting");console.log("Successful Unlisting. Transaction Hash: " + transactionHash);}});
   }  
@@ -413,7 +416,8 @@ function resolve(){
     var Tx = {
       from: from,
       to: myres.address,  
-      data: mydata
+      data: mydata,
+      gasLimit:470000
     }
     web3.eth.sendTransaction(Tx, function(err, transactionHash) {if (!err) {alert("Name Resolution Successful");console.log("Name Resolution Successful. Transaction Hash: " + transactionHash);}});
  }
