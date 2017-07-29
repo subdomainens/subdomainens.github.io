@@ -311,7 +311,8 @@ function buy(){
     var regName  = ens.getNameHash(fullName.splice(1).join('.'));
     var ensName = web3.sha3(fullName[0])
     var price = toWei(parseFloat($('#buynameprice').val()))
-    var mydata = myreg.subBuy.getData(regName,ensName,ens.namehash(fullName),buyer)
+    var completeName = ens.getNameHash($('#regbuyername').val())
+    var mydata = myreg.subBuy.getData(regName,ensName,completeName,buyer)
     var Tx = {
       from: buyer,
       to: myreg.address,
