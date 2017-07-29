@@ -342,6 +342,8 @@ function assignment(){
     var seller = $('#seller').val()
     var label = web3.sha3($('#namesell').val().split(".")[0]) 
     var mydata = mainreg.transfer.getData(label,myreg.address)
+    var estimate = web3.eth.estimateGas({data: mydata})
+    alert(estimate)
     var Tx = {
       from: seller,
       to: myreg.address,
@@ -361,6 +363,8 @@ function finalize(){
   var commitPeriod = $('#commitPeriod').val()
   var price = toWei(parseFloat($('#nameprice').val()))
   var mydata = myreg.listSubName.getData(label,ensName,commitPeriod,price,expiry)
+  var estimate = web3.eth.estimateGas({data: mydata})
+  alert(estimate)
   var Tx = {
     from: seller,
     to: myreg.address, 
