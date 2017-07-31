@@ -360,7 +360,8 @@ function assignment(){
 
 function finalize(){
   var hash =  web3.sha3("acquires")
-  console.log(mdeed.previousOwner.call(hash,function(e,v){if(!e){alert(v);console.log(v);}}))
+  mdeed x = deed
+  console.log(x)
   if(empty2("sellName") == true){
   var ensName = ens.getNameHash($('#namesell').val())
   var label = web3.sha3($('#namesell').val().split(".")[0]) 
