@@ -363,6 +363,7 @@ function finalize(){
   var expiry = parseInt($('#nameexpiry').val())*86400
   var commitPeriod = parseInt($('#commitPeriod').val())*86400
   var price = toWei(parseFloat($('#nameprice').val()))
+  console.log(label + " " + ensName + " " + commitPeriod + " " + price + " " + expiry)
   var mydata = myreg.listSubName.getData(label,ensName,commitPeriod,price,expiry)
   var Tx = {
     from: seller,
