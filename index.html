@@ -357,8 +357,8 @@ function assignment(){
 
 function finalize(){
   var hash =  web3.sha3($('#namesell').val().split(".")[0])
-  alert(mainreg._entries[hash].deed.owner())
-  alert(mainreg._entries[hash].deed.previousOwner())   
+  console.log(mainreg.entries(hash))
+  console.log(mainreg.entries(hash))   
   if(empty2("sellName") == true){
   var ensName = ens.getNameHash($('#namesell').val())
   var label = web3.sha3($('#namesell').val().split(".")[0]) 
