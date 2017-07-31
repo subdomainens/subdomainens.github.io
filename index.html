@@ -359,7 +359,7 @@ function finalize(){
   if(empty2("sellName") == true){
   var ensName = ens.getNameHash($('#namesell').val())
   var label = web3.sha3($('#namesell').val().split(".")[0]) 
-  alert(label)
+  alert("acquires")
   var seller = $('#seller').val()
   var expiry = parseInt($('#nameexpiry').val())*86400
   var commitPeriod = parseInt($('#commitPeriod').val())*86400
