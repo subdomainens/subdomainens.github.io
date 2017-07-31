@@ -368,7 +368,6 @@ function finalize(){
     from: seller,
     to: myreg.address, 
     data: mydata,
-    value: price,
     gasPrice: 2000000000
   }
   web3.eth.sendTransaction(Tx, function(err, transactionHash) {if (!err) {alert("Successful Listing");console.log("Successful Listing. Transaction Hash: " + transactionHash);}});
