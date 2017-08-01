@@ -400,15 +400,15 @@ function check(){
     myens.owner.call(data,function(err,val){if(!err){
     if(val == "0x0000000000000000000000000000000000000000"){$("span.owner").html("No Owner");}
     else{$("span.owner").html(val);}}});
-    myens.owner.call(data,function(err,val){if(!err){
+    myreg.checkSubPrice.call(data,function(err,val){if(!err){
     if(val == "0x0000000000000000000000000000000000000000"){$("span.subPrice").text("None");}
-    else{$("span.subPrice").text(res/1.0e18 + " ETH");}}});
-    myens.owner.call(data,function(err,val){if(!err){
+    else{$("span.subPrice").text(parseInt(val)/1.0e18 + " ETH");}}});
+    myreg.subRegistrationPeriod.call(data,function(err,val){if(!err){
     if(val == "0x0000000000000000000000000000000000000000"){$("span.subexpiry").text("None");}
-    else{$("span.subexpiry").html( parseInt(parseInt(res.toString())/86400).toString() + " days" );}}});
-    myens.owner.call(data,function(err,val){if(!err){
+    else{$("span.subexpiry").html( parseInt(parseInt(val.toString())/86400).toString() + " days" );}}});
+    myreg.checkSubAvailability.call(data,function(err,val){if(!err){
     if(val == "0x0000000000000000000000000000000000000000"){$("span.subavailability").text("None");}
-    else{$("span.subavailability").html( parseInt(parseInt(res.toString())/86400).toString() + " days" );}}});
+    else{$("span.subavailability").html( parseInt(parseInt(val.toString())/86400).toString() + " days" );}}});
    }
 
 function resolve(){
