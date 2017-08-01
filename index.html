@@ -405,7 +405,7 @@ function check(){
     else{$("span.subPrice").text(parseInt(val)/1.0e18 + " ETH");}}});
     myreg.subRegistrationPeriod.call(data,function(err,val){if(!err){
     if(val == "0x0000000000000000000000000000000000000000"){$("span.subexpiry").text("None");}
-    else{$("span.subexpiry").html( parseInt(parseInt(val.toString())/86400).toString() + " days" );}}});
+    else{$("span.subexpiry").html( (parseInt(val)/86400).toString() + " days" );}}});
     myreg.checkSubAvailability.call(data,function(err,val){if(!err){
     if(val == "0x0000000000000000000000000000000000000000"){$("span.subavailability").text("None");}
     else{$("span.subavailability").html( (parseInt(val)/86400).toString() + " days" );}}});
