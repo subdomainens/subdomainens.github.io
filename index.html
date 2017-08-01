@@ -397,6 +397,7 @@ function unlist(){
 
 function check(){
     var data = ens.getNameHash($('#ename').val())
+    myreg.checkSubPrice.call(data,function(err,res){if(!err){alert(res/1.0e18 + " ETH");}});
     myens.owner.call(data,function(err,val){if(!err){
     if(val == "0x0000000000000000000000000000000000000000"){
       $("span.owner").html("No Owner");
