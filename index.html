@@ -408,7 +408,7 @@ function check(){
     else{$("span.subexpiry").html( (parseInt(val)/86400).toString() + " days" );}}});
     myreg.checkSubAvailability.call(data,function(err,val){if(!err){
     if(val == "0x0000000000000000000000000000000000000000"){$("span.subavailability").text("None");}
-    else{$("span.subavailability").html( (parseInt(val)/86400).toString() + " days" );}}});
+    else{$("span.subavailability").html(val);}}});
    }
 
 function resolve(){
