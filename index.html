@@ -361,7 +361,7 @@ function assignment(){
 
 function finalize(){
   var conf = confirm("Have you verified that the Deed and ENS transactions have confirmed?")
-  if(conf==True){    
+  if(conf==true){    
   if(empty2("sellName") == true){
   var ensName = ens.getNameHash($('#namesell').val())
   var label = web3.sha3($('#namesell').val().split(".")[0]) 
