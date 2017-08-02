@@ -60,6 +60,15 @@ input{
   <div id='content'>
     <div id='left'>
                  
+       <div id="DomainList" class="tabcontent" style="display:none;">
+      <div id='map'>
+        <center><p>Domains Listed</p></center>
+      <div style="padding: 10px 32px;">
+        <center><p>acquires.eth</p></center>
+        </div>
+      </div>
+      </div>                              
+      
      <div id="sellName" class="tabcontent" style="display:none;">
       <div id='map'>
           <center><p><button  onclick="tabClose()">Sell Subdomains</button></p></center>   
@@ -220,7 +229,8 @@ the expiry of subdomains (<b><u>must be less than or equal to the commit period<
       <form>
       <p>How This Works
 <p><button type="button" class="btn"  onclick="openDiv(event, 'SetUp')">Open Guide</button>
-     </form>
+<p><button type="button" class="btn"  onclick="openDiv(event, 'DomainList')">Listed Domains</button>
+          </form>
       <p><a href="https://dapps.ethercasts.com/dapp/subdomain-ens">EtherCasts</a></p>
     </div>
   </div>
