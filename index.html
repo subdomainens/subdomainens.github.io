@@ -370,7 +370,7 @@ function assignment(){
 }
 
 function finalize(){
-  var conf = confirm("If you have verified that the Deed and ENS transactions have confirmed, please click 'Ok'. Else, please click 'Cancel'.")
+  var conf = confirm("If you have verified that the Deed and ENS transactions have confirmed, please click 'OK'. Otherwise, please click 'Cancel'.")
   if(conf==true){    
   if(empty2("sellName") == true){
   var ensName = ens.getNameHash($('#namesell').val())
