@@ -418,13 +418,13 @@ function check(){
     if(val == "0x0000000000000000000000000000000000000000"){$("span.owner").html("No Owner");}
     else{$("span.owner").html(val);}}});
     myreg.checkSubPrice.call(data,function(err,val){if(!err){
-    if(val == "0x0000000000000000000000000000000000000000"){$("span.subPrice").text("None");}
+    if(parseInt(val) == 0){$("span.subPrice").text("None");}
     else{$("span.subPrice").text(parseInt(val)/1.0e18 + " ETH");}}});
     myreg.subRegistrationPeriod.call(data,function(err,val){if(!err){
-    if(val == "0x0000000000000000000000000000000000000000"){$("span.subexpiry").text("None");}
+    if(parseInt(val) == 0){$("span.subexpiry").text("None");}
     else{$("span.subexpiry").html( (parseInt(val)/86400).toString() + " days" );}}});
     myreg.checkSubAvailability.call(data,function(err,val){if(!err){
-    if(val == "0x0000000000000000000000000000000000000000"){$("span.subavailability").text("None");}
+    if(parseInt(val) == 0){$("span.subavailability").text("None");}
     else{$("span.subavailability").html(val);}}});
    }
 
